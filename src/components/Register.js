@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Register(props) {
+const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -14,8 +14,8 @@ export default function Register(props) {
     setPassword(evt.target.value);
   }
   function handleSubmit(evt) {
-    evt.preventDefault();
-    props.handleRegistration(email, password);
+    // evt.preventDefault();
+    // props.handleRegistration(email, password);
   }
     return (
       <div class="popup popup_type_registration">
@@ -37,3 +37,5 @@ export default function Register(props) {
         </div>
     )
 }
+
+export default Register;

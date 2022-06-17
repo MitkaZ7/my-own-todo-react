@@ -4,10 +4,14 @@ import Header from './Header'
 import Main from './Main'
 import Footer from './Footer'
 import Welcome from '../pages/Welcome'
-
-import NotFound from '../pages/NotFound';
+import Layout from './Layout'
+import NotFound from '../pages/NotFound'
 import Login from './Login'
 import Register from './Register'
+import Admin from './Admin'
+import Lounge from './Lounge'
+import Unauthorized from './Unauthorized'
+import RequireAuth from './RequireAuth'
 import * as authApi from '../utils/Auth'
 function App() {
   // const [currentUser, setCurrentUser] = React.useState({});
@@ -113,11 +117,20 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route path='/' element={<Main />}/>
-        <Route path='/welcome' element={<Welcome />}/>
-        <Route path='/signin' element={<Login />} />
-        <Route path='/signup' element={<Register />} />
-        <Route path='*' element={<NotFound/>}/>
+        <Route path='/' element={<Layout />}/>
+        {/* Public routes */}
+        <Route path='welcome' element={<Welcome />}/>
+        <Route path='signin' element={<Login />} />
+        <Route path='signup' element={<Register />} />
+        <Route path='unauthorized' element={<Unauthorized />} />
+        {/* Protected routes */}
+        <Route element={<RequireAuth />}>
+          <Route path='/' element={<Main />} />
+          <Route path='admin' element={<Admin />} />
+          <Route path='lounge' element={<Lounge />} />
+        </Route>
+        {/* cath all */}
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </>

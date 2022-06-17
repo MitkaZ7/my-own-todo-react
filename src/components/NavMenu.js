@@ -14,6 +14,12 @@ export default class NavMenu extends Component {
           <li className="header__menu-list-item">
             <Link className="header__menu-link header__menu-link_register" to="/welcome">Главная</Link>
           </li>
+          <li className="header__menu-list-item">
+            <Link className="header__menu-link header__menu-link_register" to="/admin">Admin</Link>
+          </li>
+          <li className="header__menu-list-item">
+            <Link className="header__menu-link header__menu-link_register" to="/lounge">Lounge</Link>
+          </li>
         </ul>
         <div className="header__menu-toggler menu-toggler">
           <span className="menu-toggler__bar"></span>
