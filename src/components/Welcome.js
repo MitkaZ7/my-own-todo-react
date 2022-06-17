@@ -9,10 +9,10 @@ export default class Welcome extends Component {
           <img className="logo__image" src={logo} alt="logo"/>
         </div>
         <div className="section-info__text">
-          <h1 className="section__title">Приветствую! Это мой список дел</h1>
-          <p className="section__subtitle">Простой и стильный фулл-стек проект на ReactJS</p>
+          <h1 className="section__title">Welcome to My own TODO app</h1>
+          <p className="section__subtitle">Simple and style project based on ReactJS</p>
           <div className="section-info__links">
-            <Link className="section__info-link" to="/">Попробуйте &rarr;</Link>
+            <Link className="section__info-link" to="/signin">Let's make you list &rarr;</Link>
           </div>
         </div>
       </section>

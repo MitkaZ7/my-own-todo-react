@@ -1,8 +1,13 @@
-import React from 'react';
-// import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import { useState, useEffect } from 'react'
 import Task from './Task';
-function Main(props) {
-    // const currentUser = React.useContext(CurrentUserContext);
+const Tasks = (props) => {
+    const [tasks, setTasks] = useState([]);
+    useEffect(() => {
+      fetch('https://jsonplaceholder.typicode.com/posts/4')
+      .then(res => res.json())
+      .then(data => setTasks(data));
+    })
+
     return (
         <main className="content">
 
@@ -14,10 +19,9 @@ function Main(props) {
               <button className="tasks__add-button button_type_submit" type="submit"></button>
           </form>
           <ul className="tasks__list">
-                <Task/>
-            <Task />
-            <Task />
-
+            {/* {props.cards.map((card) => {
+              return (<Task key={card._id} card={card} onCardClick={props.onCardClick} onCardLike={props.onCardLike} onCardDelete={props.onCardDelete} />)
+            })} */}
           </ul>
           <div className="plug section__plug">
             <p className="plug__text">no current tasks, please add them</p>
@@ -32,4 +36,4 @@ function Main(props) {
         </main>
     )
 }
-export default Main;
+export default Tasks;
