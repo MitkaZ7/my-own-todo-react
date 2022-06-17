@@ -1,0 +1,21 @@
+.popup {
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-flow: column wrap;
+      min-height: 600px;
+      visibility: visible;
+      transition: visibility 0.3s, opacity 0.3s ease;
+      background-image: url(../../images/welcome-background-rus.svg);
+      background-size: contain;
+      background-position: top center;
+      background-repeat: no-repeat;
+
+
+}
+
+@media(max-width: 768px) {
+    .popup {
+
+    }
+}

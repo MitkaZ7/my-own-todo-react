@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="232px" height="81px" viewBox="0 0 232 81" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 16</title>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-16" fill-rule="nonzero">
+            <g id="name-logo" transform="translate(80.000000, 0.000000)">
+                <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="152" height="81"></rect>
+                <rect id="Rectangle" fill="#6DA387" x="12.7850467" y="9.94736842" width="127.850467" height="61.1052632"></rect>
+                <text id="MY-OWN" fill="#FFFFFF" font-family="BebasNeueBold, Bebas Neue" font-size="30" font-weight="bold">
+                    <tspan x="41.7696449" y="40.1415695">MY OWN</tspan>
+                </text>
+                <text id="TODO-LIST" fill="#FFFFFF" font-family="BebasNeueBold, Bebas Neue" font-size="30" font-weight="bold">
+                    <tspan x="34.3826542" y="64.1415695">TODO LIST</tspan>
+                </text>
+            </g>
+            <path d="M81,0 L81,81 L0,81 L0,0 L81,0 Z M71.0526316,9.94736842 L9.94736842,9.94736842 L9.94736842,71.0526316 L71.0526316,71.0526316 L71.0526316,9.94736842 Z" id="Combined-Shape" fill="#6DA387"></path>
+            <path d="M39,59 C41,61 35,64 75.7022596,23.3657471 C82.4974177,16.5819425 97.2526424,2.04743652 98,1 C101.773925,-4.28923076 42.4254807,44 39,44 C34.8961647,44 1.37901083,20.7340445 15.6895054,35.8670223 C30,51 37,57 39,59 Z" id="Oval" stroke="#FFFFFF" fill="#6DA387"></path>
+        </g>
+    </g>
+</svg>

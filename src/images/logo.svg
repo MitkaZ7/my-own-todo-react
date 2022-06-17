@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="120px" viewBox="0 0 320 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logo</title>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="logo">
+            <rect id="Rectangle" x="0" y="1.1937118e-12" width="320" height="120"></rect>
+            <g id="Group-5" transform="translate(35.000000, 0.000000)" fill-rule="nonzero">
+                <rect id="Rectangle" fill="#6DA387" x="111" y="35" width="138" height="57"></rect>
+                <g id="Group-4">
+                    <g id="Group-2">
+                        <path d="M60.5,20 C82.3152476,20 100,37.6847524 100,59.5 C100,81.3152476 82.3152476,99 60.5,99 C38.6847524,99 21,81.3152476 21,59.5 C21,37.6847524 38.6847524,20 60.5,20 Z M60.5,28 C43.1030304,28 29,42.1030304 29,59.5 C29,76.8969696 43.1030304,91 60.5,91 C77.8969696,91 92,76.8969696 92,59.5 C92,42.1030304 77.8969696,28 60.5,28 Z" id="Combined-Shape" fill="#6DA387"></path>
+                        <path d="M60,0 C93.137085,0 120,26.862915 120,60 C120,93.137085 93.137085,120 60,120 C26.862915,120 0,93.137085 0,60 C0,26.862915 26.862915,0 60,0 Z M60.5,11 C33.1619049,11 11,33.1619049 11,60.5 C11,87.8380951 33.1619049,110 60.5,110 C87.8380951,110 110,87.8380951 110,60.5 C110,33.1619049 87.8380951,11 60.5,11 Z" id="Combined-Shape" fill="#296E6B"></path>
+                    </g>
+                    <circle id="Oval" fill="#FFFFFF" cx="60.5" cy="59.5" r="31.5"></circle>
+                    <path d="M58.9193247,76 C66.8533091,76 80.4679491,61.6342504 168.258641,13.7484186 C256.049332,-34.1374132 66.8533091,58.4418617 58.9193247,58.4418617 C50.9853403,58.4418617 -6.52464547,24.1236822 16.6201733,43.2780149 C39.764992,62.4323476 50.9853403,76 58.9193247,76 Z" id="Oval" fill="#FF725E"></path>
+                </g>
+                <rect id="Rectangle" fill="#FFFFFF" x="126" y="42" width="116" height="43"></rect>
+                <g id="my-own-todo-list" transform="translate(144.572000, 37.544067)" font-family="BebasNeueBold, Bebas Neue" font-size="24" font-weight="bold">
+                    <text id="MY-OWN" fill="#296E6B">
+                        <tspan x="5.904" y="23">MY OWN</tspan>
+                    </text>
+                    <text id="TODO-LIST" fill="#2B4A4A">
+                        <tspan x="0" y="45">TODO LIST</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

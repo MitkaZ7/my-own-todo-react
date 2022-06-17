@@ -1,0 +1,11 @@
+.button_remove {
+    background: url(../../../images/Trash.svg) no-repeat center;
+    outline: none;
+    border: none;
+    position: relative;
+    top: -32px;
+    left: 450px;
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+}

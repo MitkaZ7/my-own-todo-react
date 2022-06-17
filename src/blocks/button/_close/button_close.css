@@ -1,0 +1,28 @@
+.button_close {
+    background: url(../../../images/close_icon_big.svg) no-repeat center;
+    outline: none;
+    border: none;
+    position: absolute;
+    top: -35px;
+    left: 400px;
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+}
+.button_close:hover {
+    opacity: .6;
+    cursor: pointer;
+}
+
+@media(max-width: 768px) {
+    .button_close {
+        left: 325px;
+        height: 26px;
+        width: 26px;
+    }
+}
+@media(max-width: 320px) {
+    .button_close {
+      left: 275px;
+    }
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="107px" height="57px" viewBox="0 0 107 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>name-logo</title>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="name-logo" fill-rule="nonzero">
+            <rect id="Rectangle" fill="#FFFFFF" x="0" y="0" width="107" height="57"></rect>
+            <rect id="Rectangle" fill="#6DA387" x="9" y="7" width="90" height="43"></rect>
+            <text id="MY-OWN" fill="#FFFFFF" font-family="BebasNeueBold, Bebas Neue" font-size="24" font-weight="bold">
+                <tspan x="24.476" y="26.5440674">MY OWN</tspan>
+            </text>
+            <text id="TODO-LIST" fill="#FFFFFF" font-family="BebasNeueBold, Bebas Neue" font-size="24" font-weight="bold">
+                <tspan x="18.572" y="45.5440674">TODO LIST</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,10 @@
+.header__menu-link {
+    text-decoration: none;
+    color: #296E6B;
+    transition: .5s ease;
+}
+.header__menu-link:hover {
+    cursor: pointer;
+    color: #FF725E;
+    text-decoration: underline;
+}

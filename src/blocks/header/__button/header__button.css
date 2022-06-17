@@ -1,0 +1,9 @@
+.header__button {
+    border: none;
+    background: none;
+    color: #296E6B;
+    
+}
+.header__button:hover {
+    cursor: pointer;
+}

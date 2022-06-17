@@ -1,0 +1,8 @@
+.footer__contacts-list-item {
+    margin: 0 10px 0 0;
+
+}
+.footer__contacts-list-item:last-of-type {
+    margin-right: 0;
+
+}

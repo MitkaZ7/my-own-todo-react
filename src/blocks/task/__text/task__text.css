@@ -1,0 +1,8 @@
+.task__text {
+    margin: 0 10px;
+    grid-area: text;
+    display: flex;
+    align-items: center;
+
+
+}

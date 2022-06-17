@@ -1,0 +1,6 @@
+.task__input-label {
+    display: grid;
+    grid-template-areas: 'text checkbox';
+    grid-template-columns: 1fr 30px;
+    width: 100%;
+}

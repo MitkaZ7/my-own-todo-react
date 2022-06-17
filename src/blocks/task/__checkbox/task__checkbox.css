@@ -1,0 +1,8 @@
+.task__checkbox{
+    grid-area: checkbox;
+    margin: 10px 0;
+    width: 1.18em;
+    height: 1.18em;
+    background-image: url(../../../images/chbx.svg);
+
+}

@@ -1,0 +1,17 @@
+.task__input-сhbx {
+   appearance: none;
+   position: absolute;
+}
+.task__input-сhbx:checked + .task__checkbox {
+    background-image: url(../../../images/active-chbx.svg);
+}
+
+
+.task__input-сhbx:disabled + .task__checkbox {
+    background-image: url(../../../images/dis-chbx.svg);
+
+}
+.task__input-сhbx:checked:disabled + .task__checkbox {
+    background-image: url(../../../images/dis-active-chbx.svg);
+
+}

@@ -1,0 +1,4 @@
+.form__input-error_state_active {
+    display: block;
+    border-bottom: 1px solid #f00;
+}

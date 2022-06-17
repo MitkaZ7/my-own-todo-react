@@ -1,0 +1,10 @@
+.task__button-remove {
+    background-color: transparent;
+    background-image: url(../../../images/Trash.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    width: 18px;
+    height: 20px;
+    margin-right: 10px;
+}

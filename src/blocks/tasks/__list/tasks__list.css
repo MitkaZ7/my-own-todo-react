@@ -1,0 +1,10 @@
+.tasks__list {
+    list-style: none;
+    border-radius:10px;
+    margin: 20px 0 0;
+    padding:0;
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 500px;
+    width: 100%;
+}
