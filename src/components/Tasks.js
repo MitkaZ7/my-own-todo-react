@@ -3,9 +3,7 @@ import Task from './Task';
 const Tasks = (props) => {
     const [tasks, setTasks] = useState([]);
     useEffect(() => {
-      fetch('https://jsonplaceholder.typicode.com/posts/4')
-      .then(res => res.json())
-      .then(data => setTasks(data));
+
     })
 
     return (
