@@ -1,4 +1,4 @@
-export const url = 'http://localhost:3000';
+export const url = 'http://localhost:3001';
 
 const checkResponse = (res) =>
     res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
@@ -21,13 +21,13 @@ export const authorize = ({ password, email }) => {
         headers: {
             "Content-Type": "application/json",
         },
-      body: JSON.stringify({ email, password }),
-    })
-        .then((response) => {
-            return response.json();
-        })
+        body: JSON.stringify({ email, password }),
+      })
+        // .then((response) => {
+        //     return response.json();
+        // })
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.token) {
                 localStorage.setItem('jwt', data.token)
                 return data;

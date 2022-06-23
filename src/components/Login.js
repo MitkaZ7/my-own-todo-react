@@ -2,14 +2,30 @@ import { useRef, useEffect, useState} from 'react';
 
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 const LOGIN_URL = '/auth';
-const Login = () => {
+const Login = ({onSubmit}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
+  function handleChangeEmail(evt) {
+    setEmail(evt.target.value);
+  }
+  function handleChangePassword(evt) {
+    setPassword(evt.target.value);
+  }
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onSubmit({ email, password });
+  }
 
   return (
     <div className="popup popup_type_login">
       <div className="popup__content">
         <h3 className="popup__title">Login</h3>
-        <form action="#" name="form-registration" className="form popup__form">
+        <form
+        action="#"
+        name="form-registration"
+        className="form popup__form"
+        onSubmit={handleSubmit}>
           <fieldset className="popup__form-fieldset">
             <input
             className="popup__form-input form-input"
@@ -18,6 +34,8 @@ const Login = () => {
             name="email"
             placeholder="email"
 
+            onChange={handleChangeEmail}
+            value={email}
 
 
             />
@@ -28,6 +46,9 @@ const Login = () => {
             type="password"
             name="password"
             placeholder="password"
+
+            onChange={handleChangePassword}
+            value={password}
 
             />
             <span className="popup__input-error"></span>

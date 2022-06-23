@@ -11,37 +11,29 @@ class Api {
         return Promise.reject(`Ошибка: ${res.status}`);
     }
 
-    getInitialCards() {
-        return fetch(`${this._url}/cards`, {
+    getInitialTasks() {
+        return fetch(`${this._url}/tasks`, {
             method: "GET",
             headers: this._headers,
         })
             .then(this._checkResponse)
     }
 
-    postCards(item) {
-        return fetch(`${this._url}/cards`, {
+    postTask(item) {
+        return fetch(`${this._url}/tasks`, {
             method: "POST",
             headers: this._headers,
             body: JSON.stringify({
-                name: item.name,
-                link: item.link,
+                text: item.text,
+                isCompleted: item.isCompleted,
             })
         })
             .then(this._checkResponse)
     }
 
-    handlerDeleteCards(item) {
-        return fetch(`${this._url}/cards/${item}`, {
+    handlerDeleteTask(item) {
+        return fetch(`${this._url}/tasks/${item}`, {
             method: 'DELETE',
-            headers: this._headers,
-        })
-            .then(this._checkResponse)
-    }
-
-    changeLikeCardStatus(item, like) {
-        return fetch(`${this._url}/cards/${item}/likes`, {
-            method: like ? 'DELETE' : 'PUT',
             headers: this._headers,
         })
             .then(this._checkResponse)
@@ -70,10 +62,10 @@ class Api {
 }
 
 const config = {
-    url: "http://localhost:3000",
+    url: "http://localhost:3001",
     headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem('jwt')}`
+        "Authorization": `Bearer ${localStorage.getItem('token')}`
     }
 };
 
