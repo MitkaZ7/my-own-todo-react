@@ -1,74 +1,78 @@
 class Api {
-    constructor({url, headers}) {
-        this._url = url;
-        this._headers = headers;
+  constructor({ url, headers }) {
+    this._url = url;
+    this._headers = headers;
+  }
+  _checkResponse(res) {
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`Ошибка ${res.status}`);
     }
+  }
+  getUserInfo() {
+    return fetch(`${this._url}/users/me`, {
+      method: 'GET',
+      headers: this._headers,
+    })
+      .then(this._checkResponse)
+  }
+  getInitialTasks() {
+    return fetch(`${this._url}/tasks`, {
+      method: 'GET',
+      headers: this._headers,
 
-    _checkResponse(res) {
-        if (res.ok) {
-            return res.json();
-        }
-        return Promise.reject(`Ошибка: ${res.status}`);
-    }
+    })
+      .then(this._checkResponse)
+  }
+  // editUserInfo(data) {
+  //   return fetch(`${this._url}/users/me`, {
+  //     method: 'PATCH',
+  //     headers: this._headers,
+  //     credentials: 'include',
+  //     body: JSON.stringify({
+  //       name: data.name,
+  //       about: data.about
+  //     })
+  //   })
+  //     .then(this._checkResponse)
+  // }
+  // editUserAvatar(data) {
+  //   return fetch(`${this._url}/users/me/avatar`, {
+  //     method: 'PATCH',
+  //     headers: this._headers,
+  //     credentials: 'include',
+  //     body: JSON.stringify({
+  //       avatar: data.avatar
+  //     })
+  //   })
+  //     .then(this._checkResponse)
+  // }
+  addNewTask(data) {
+    return fetch(`${this._url}/tasks`, {
+      method: 'POST',
+      headers: this._headers,
+      body: JSON.stringify({
+        text: data.value
+      })
+    })
+      .then(this._checkResponse)
+  }
+  removeTask(taskID) {
+    return fetch(`${this._url}/tasks/${taskID}`, {
+      method: 'DELETE',
+      headers: this._headers,
 
-    getInitialTasks() {
-        return fetch(`${this._url}/tasks`, {
-            method: "GET",
-            headers: this._headers,
-        })
-            .then(this._checkResponse)
-    }
-
-    postTask(item) {
-        return fetch(`${this._url}/tasks`, {
-            method: "POST",
-            headers: this._headers,
-            body: JSON.stringify({
-                text: item.text,
-                isCompleted: item.isCompleted,
-            })
-        })
-            .then(this._checkResponse)
-    }
-
-    handlerDeleteTask(item) {
-        return fetch(`${this._url}/tasks/${item}`, {
-            method: 'DELETE',
-            headers: this._headers,
-        })
-            .then(this._checkResponse)
-    }
-
-    getUserInfoFromServer() {
-        return fetch(`${this._url}/users/me`, {
-            method: "GET",
-            headers: this._headers,
-        })
-            .then(this._checkResponse)
-    }
-
-    updateUserData(item) {
-        return fetch(`${this._url}/users/me`, {
-            method: "PATCH",
-            headers: this._headers,
-            body: JSON.stringify({
-                name: item.name,
-                about: item.about
-            })
-        })
-            .then(this._checkResponse)
-    }
-
+    })
+      .then(this._checkResponse)
+  }
 }
 
 const config = {
-    url: "http://localhost:3001",
-    headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem('token')}`
-    }
+  url: 'http://localhost:3001',
+  headers: {
+    'Content-type': 'application/json',
+  }
 };
-
 const api = new Api(config);
-
 export default api;

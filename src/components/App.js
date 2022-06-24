@@ -1,61 +1,87 @@
-import React from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useNavigate  } from 'react-router-dom';
 
 import Tasks from './Tasks'
 import Task from './Task'
-
+import api from '../utils/Api'
 import Welcome from './Welcome'
 import Layout from './Layout'
 import NotFound from './NotFound'
 import Login from './Login'
 import Register from './Register'
 import Admin from './Admin'
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 import Unauthorized from './Unauthorized'
-import api from '../utils/Api'
-import * as authApi from '../utils/Auth'
+
 function App() {
+  const [currentUser, setCurrentUser] = React.useState({});
+  const [tasks, setTasks] = React.useState([]);
   const [email, setEmail] = React.useState('');
+  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [selectedTask, setSelectedTask] = React.useState({});
   let navigate = useNavigate();
-  // registration
-  function handleRegistration(email, password) {
-    authApi.register(email, password)
-      .then((res) => {
-        if (res.data) {
-          navigate('/login');
-        }
-      })
-      .catch((error) => {
-        // setIsSuccessSignUp(false);
-        // handleInfoTooltipOpen();
-        console.log('Не удалось зарегистрироваться ' + error);
-      })
+
+
+  const handleTaskClick = (task) => {
+    setSelectedTask(task);
+    console.log(task)
   }
-
-  function handleLogin({ email, password }) {
-    authApi.authorize({ email, password })
-      .then((res) => {
-        if (res.message === 'Вход совершен успешно') {
-          checkToken();
-          Promise.all([api.getInitialTasks()]).then((res) => {
-
-          }).catch(() => console.log(res.status));
-        }
+  function handleTaskDelete(task) {
+    api
+      .removeTask(task._id)
+      .then(() => {
+        setTasks((state) => state.filter((c) => c._id !== task._id));
       })
       .catch((e) => {
-        throw new Error;
+        console.log('Ошибка удаления задачи');
       })
   }
-  function checkToken() {
-    authApi
-      .checkToken()
+
+  useEffect(() => {
+    api
+      .getInitialTasks()
       .then((res) => {
-        // setLoggedIn(true);
-        setEmail(res.data);
+        setTasks(res);
       })
-      .catch((err) => {
-        // setLoggedIn(false);
-        console.log(err)
+      .catch((e) => {
+        console.log('Ошибка, список задач не загружен');
+      })
+  }, []);
+
+  function handleLoadTasks() {
+    // Promise.all([api.getInitialTasks()])
+    // .then((res) => {
+
+    // })
+    // .catch((e)=>{
+    //   console.log('Ошибка, список задач не загружен')
+    // })
+
+  }
+
+  function handleAddTask(task) {
+
+    // const taskData = {task};
+    // console.log(taskData);
+    // if (taskData.taskText) {
+    //   // console.log(taskData);
+    //   tasks.push(taskData);
+    //   // console.log(tasks);
+    //   // updateLocalStorage();
+    //   // tasksContainer.addItem(createTask(taskData));
+
+    //   // taskInput.value = '';
+    //   // updateTaskCounters(tasks);
+    // }
+    api
+      .addNewTask(task)
+      .then((res) => {
+        setTasks([res, ...tasks]);
+        console.log(tasks)
+      })
+      .catch((error) => {
+        console.log('Ошибка, не удалось добавить новую задачу');
       })
   }
 
@@ -68,16 +94,26 @@ function App() {
 
 
   return (
-    <>
+    <CurrentUserContext.Provider value={currentUser}>
       <Routes>
         <Route path='/' element={<Layout />}>
         {/* Public routes */}
         <Route index element={<Welcome />}/>
-          <Route path='signin' element={<Login onSubmit={handleLogin}/>} />
-          <Route path='signup' element={<Register handleRegistration={handleRegistration}/>} />
+          <Route path='signin' element={<Login />} />
+          <Route path='signup' element={<Register />} />
         <Route path='unauthorized' element={<Unauthorized />} />
         {/* Protected routes */}
-        <Route path='tasks' element={<Tasks />} />
+          <Route
+            path='tasks'
+            element={
+              <Tasks
+                onTaskDelete={handleTaskDelete}
+                onTaskClick={handleTaskClick}
+                onTaskAdd={handleAddTask}
+                tasks={tasks}
+                />
+              }
+          />
         <Route path='tasks/:id' element={<Task />}/>
         <Route path='admin' element={<Admin />} />
         {/* cath all */}
@@ -85,7 +121,7 @@ function App() {
         </Route>
       </Routes>
 
-    </>
+    </CurrentUserContext.Provider>
 
   );
 }
