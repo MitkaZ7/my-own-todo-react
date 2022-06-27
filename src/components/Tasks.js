@@ -1,22 +1,25 @@
-import React from 'react';
-// import { CurrentUserContext } from '../contexts/CurrentUserContext';
+
+import FormAddTask from './FormAddTask';
 import Task from './Task';
-function Main(props) {
-    // const currentUser = React.useContext(CurrentUserContext);
+const Tasks = (props) => {
+    const tasks = props.tasks;
+
     return (
         <main className="content">
-
         <section className="section tasks">
           <h1 className="section__title">Your tasks</h1>
-          <form className="form form_add-task tasks__form">
-            <input type="text" className="tasks__form-input form__input" id="form__input" name="task"/>
-              <span className="form__input-error"></span>
-              <button className="tasks__add-button button_type_submit" type="submit"></button>
-          </form>
+          <FormAddTask onSubmit={props.onTaskAdd}/>
           <ul className="tasks__list">
-                <Task/>
-            <Task />
-            <Task />
+            {tasks.map((task) => {
+              return (
+                <Task
+                key={task._id}
+                task={task}
+                onTaskClick={props.onTaskClick}
+                onTaskDelete={props.onTaskDelete}
+                />
+              )
+            })}
 
           </ul>
           <div className="plug section__plug">
@@ -32,4 +35,4 @@ function Main(props) {
         </main>
     )
 }
-export default Main;
+export default Tasks;

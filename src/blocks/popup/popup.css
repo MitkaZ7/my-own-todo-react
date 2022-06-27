@@ -6,7 +6,7 @@
       min-height: 600px;
       visibility: visible;
       transition: visibility 0.3s, opacity 0.3s ease;
-      background-image: url(../../images/welcome-background-rus.svg);
+      background-image: url(../../images/popup-background.svg);
       background-size: contain;
       background-position: top center;
       background-repeat: no-repeat;
@@ -16,6 +16,11 @@
 
 @media(max-width: 768px) {
     .popup {
-
+      min-height: 550px;
     }
+}
+@media(max-width: 320px) {
+  .popup {
+    min-height: 400px;
+  }
 }

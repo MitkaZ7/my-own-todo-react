@@ -1,7 +1,8 @@
 .notfounded-page {
-  background-image: url('../../images/404.png');
+  background-image: url('../../images/404.svg');
   background-position: top;
   background-size: contain;
+  background-repeat: no-repeat;
   /* background-color: #6DA387; */
 
 }

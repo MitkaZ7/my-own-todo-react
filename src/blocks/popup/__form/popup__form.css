@@ -3,6 +3,8 @@
     flex-flow: column;
     justify-content: center;
     margin-top: 0px;
+    max-width: 300px;
+    width: 100%;
 
 }
 

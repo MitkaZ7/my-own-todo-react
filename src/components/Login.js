@@ -1,51 +1,31 @@
 import { useRef, useEffect, useState} from 'react';
-import useAuth from '../hooks/useAuth';
+
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 const LOGIN_URL = '/auth';
-const Login = () => {
-  // const { setAuth } = useAuth()
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
-
-  // function handleСhangeEmail(evt) {
-  //   setEmail(evt.target.value);
-  // }
-  // function handleChangePassword(evt) {
-  //   setPassword(evt.target.value);
-  // }
-  // function handleSubmit(evt) {
-  //   // evt.preventDefault();
-  //   // onSubmit({password, email});
-  // }
-
-  const { setAuth } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-  const userRef = useRef();
-  const errRef = useRef();
-  const [user, setUser] = useState('');
+const Login = ({onSubmit}) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errMessage, setErrMessage] = useState('');
-  const [successMessage, setSuccessMessage] = useState(false);
 
-
-  useEffect(() => {
-    setErrMessage('');
-  }, [user, password])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
+  function handleChangeEmail(evt) {
+    setEmail(evt.target.value);
   }
-
+  function handleChangePassword(evt) {
+    setPassword(evt.target.value);
+  }
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    onSubmit({ email, password });
+  }
 
   return (
     <div className="popup popup_type_login">
       <div className="popup__content">
         <h3 className="popup__title">Login</h3>
-        {/* <button className="button button_close button" type="button"></button> */}
-        <form action="#" name="form-registration" className="form popup__form">
+        <form
+        action="#"
+        name="form-registration"
+        className="form popup__form"
+        onSubmit={handleSubmit}>
           <fieldset className="popup__form-fieldset">
             <input
             className="popup__form-input form-input"
@@ -54,6 +34,8 @@ const Login = () => {
             name="email"
             placeholder="email"
 
+            onChange={handleChangeEmail}
+            value={email}
 
 
             />
@@ -64,6 +46,9 @@ const Login = () => {
             type="password"
             name="password"
             placeholder="password"
+
+            onChange={handleChangePassword}
+            value={password}
 
             />
             <span className="popup__input-error"></span>
