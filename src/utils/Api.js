@@ -21,7 +21,6 @@ class Api {
     return fetch(`${this._url}/tasks`, {
       method: 'GET',
       headers: this._headers,
-
     })
       .then(this._checkResponse)
   }
@@ -58,6 +57,7 @@ class Api {
     })
       .then(this._checkResponse)
   }
+
   removeTask(taskID) {
     return fetch(`${this._url}/tasks/${taskID}`, {
       method: 'DELETE',

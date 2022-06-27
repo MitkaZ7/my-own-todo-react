@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+
 import FormAddTask from './FormAddTask';
 import Task from './Task';
 const Tasks = (props) => {
-
+    const tasks = props.tasks;
 
     return (
         <main className="content">
@@ -10,7 +10,7 @@ const Tasks = (props) => {
           <h1 className="section__title">Your tasks</h1>
           <FormAddTask onSubmit={props.onTaskAdd}/>
           <ul className="tasks__list">
-            {props.tasks.map((task) => {
+            {tasks.map((task) => {
               return (
                 <Task
                 key={task._id}
@@ -20,6 +20,7 @@ const Tasks = (props) => {
                 />
               )
             })}
+
           </ul>
           <div className="plug section__plug">
             <p className="plug__text">no current tasks, please add them</p>

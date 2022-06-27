@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route, useNavigate  } from 'react-router-dom';
 
 import Tasks from './Tasks'
@@ -43,6 +43,7 @@ function App() {
       .getInitialTasks()
       .then((res) => {
         setTasks(res);
+        console.log(res)
       })
       .catch((e) => {
         console.log('Ошибка, список задач не загружен');
@@ -62,37 +63,16 @@ function App() {
 
   function handleAddTask(task) {
 
-    // const taskData = {task};
-    // console.log(taskData);
-    // if (taskData.taskText) {
-    //   // console.log(taskData);
-    //   tasks.push(taskData);
-    //   // console.log(tasks);
-    //   // updateLocalStorage();
-    //   // tasksContainer.addItem(createTask(taskData));
-
-    //   // taskInput.value = '';
-    //   // updateTaskCounters(tasks);
-    // }
-    api
-      .addNewTask(task)
-      .then((res) => {
+    const taskData = {task};
+    console.log(taskData);
+    api.addNewTask(task)
+    .then((res) => {
         setTasks([res, ...tasks]);
-        console.log(tasks)
       })
-      .catch((error) => {
+    .catch((e) => {
         console.log('Ошибка, не удалось добавить новую задачу');
       })
   }
-
-
-
-
-
-
-
-
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>

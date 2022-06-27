@@ -1,6 +1,8 @@
 import { useParams } from "react-router-dom";
 // import { CurrentUserContext } from '../contexts/CurrentUserContext';
-const Task = (props) => {
+function Task(props){
+  const taskCompletedClassName = (`task_state_completed`);
+
   function handleClick() {
     props.onTaskClick(props.task);
   }
@@ -10,7 +12,7 @@ const Task = (props) => {
   }
 
     return (
-      <li className="task">
+      <li className="task" onClick={handleClick} task={props.task} key={props.task._id}>
       <div className="task__content">
         <button className="button task__button-edit"></button>
         <label className="task__input-label">

@@ -9,6 +9,7 @@ function FormAddTask({ onSubmit }) {
   function handleSubmit(evt) {
     evt.preventDefault();
     onSubmit({value});
+    setValue('');
   }
   function handleChangeTaskInput(evt) {
     setValue(evt.target.value);
