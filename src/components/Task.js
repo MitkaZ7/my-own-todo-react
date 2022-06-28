@@ -5,6 +5,9 @@ function Task(props){
 
   function handleClick() {
     props.onTaskClick(props.task);
+
+    props.task.isCompleted = !props.task.isCompleted;
+    console.log(props.task)
   }
 
   function handleDeleteClick() {
@@ -12,12 +15,12 @@ function Task(props){
   }
 
     return (
-      <li className="task" onClick={handleClick} task={props.task} key={props.task._id}>
+      <li className="task" task={props.task} key={props.task._id}>
       <div className="task__content">
         <button className="button task__button-edit"></button>
-        <label className="task__input-label">
+          <label className="task__input-label">
           <span className="task__text">{props.task.text}</span>
-          <input className="task__input-сhbx" type="checkbox"/>
+            <input className="task__input-сhbx" type="checkbox" onClick={handleClick}/>
           <span className="task__checkbox"></span>
 
         </label>

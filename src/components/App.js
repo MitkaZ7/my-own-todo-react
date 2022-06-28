@@ -23,15 +23,22 @@ function App() {
   let navigate = useNavigate();
 
 
-  const handleTaskClick = (task) => {
-    setSelectedTask(task);
-
+  const handleTaskComplete = (task) => {
+    // setSelectedTask(task);
+    // console.log(task)
+    // api
+    //   .updateTask(task._id)
+    //   .then(() => {
+    //     console.log(task)
+    //   })
+    //     .catch((e) => {
+    //       console.log('Статус задачи не изменился');
+    //     })
   }
   function handleTaskDelete(task) {
     api
       .removeTask(task._id)
       .then(() => {
-        console.log(task)
         setTasks((state) => state.filter((t) => t._id !== task._id));
       })
       .catch((e) => {
@@ -86,7 +93,7 @@ function App() {
             element={
               <Tasks
                 onTaskDelete={handleTaskDelete}
-                onTaskClick={handleTaskClick}
+                onTaskClick={handleTaskComplete}
                 onTaskAdd={handleAddTask}
                 tasks={tasks}
                 />
