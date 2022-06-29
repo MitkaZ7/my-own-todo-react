@@ -9,9 +9,6 @@ function Task(props){
 
   function handleClick() {
     props.onTaskClick(props.task);
-
-    // props.task.isCompleted = !props.task.isCompleted;
-    console.log(props.task)
   }
 
   function handleDeleteClick() {
