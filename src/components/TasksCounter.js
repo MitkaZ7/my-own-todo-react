@@ -10,6 +10,5 @@ const TasksCounter = (props) => {
   )
 }
 
-TasksCounter.propTypes = {}
 
 export default TasksCounter

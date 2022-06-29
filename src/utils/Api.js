@@ -10,17 +10,25 @@ class Api {
       return Promise.reject(`Ошибка ${res.status}`);
     }
   }
-  getUserInfo() {
-    return fetch(`${this._url}/users/me`, {
+  // getUserInfo() {
+  //   return fetch(`${this._url}/users/me`, {
+  //     method: 'GET',
+  //     headers: this._headers,
+  //   })
+  //     .then(this._checkResponse)
+  // }
+  getInitialTasks() {
+    return fetch(`${this._url}/tasks`, {
       method: 'GET',
       headers: this._headers,
     })
       .then(this._checkResponse)
   }
-  getInitialTasks() {
+  updateTask(task) {
     return fetch(`${this._url}/tasks`, {
-      method: 'GET',
+      method: 'PUT',
       headers: this._headers,
+      body: JSON.stringify(task)
     })
       .then(this._checkResponse)
   }
