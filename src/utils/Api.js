@@ -26,7 +26,7 @@ class Api {
   }
   updateTask(task) {
     return fetch(`${this._url}/tasks`, {
-      method: 'PATCH',
+      method: 'PUT',
       headers: this._headers,
       body: JSON.stringify(task)
     })

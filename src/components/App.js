@@ -19,21 +19,20 @@ function App() {
   const [tasks, setTasks] = React.useState([]);
   const [email, setEmail] = React.useState('');
   const [loggedIn, setLoggedIn] = React.useState(false);
-  const [selectedTask, setSelectedTask] = React.useState({});
+  const [taskState, setTaskState] = React.useState(false);
   let navigate = useNavigate();
 
 
   const handleTaskComplete = (task) => {
-    // setSelectedTask(task);
-    // console.log(task)
-    // api
-    //   .updateTask(task._id)
-    //   .then(() => {
-    //     console.log(task)
-    //   })
-    //     .catch((e) => {
-    //       console.log('Статус задачи не изменился');
-    //     })
+    task.isCompleted = !task.isCompleted;
+    api
+      .updateTask(task)
+      .then((task) => {
+        setTasks((tasks) => tasks.map((t) => t._id === task._id ? task : t));
+      })
+      .catch((e) => {
+          console.log('Статус задачи не изменился');
+        })
   }
   function handleTaskDelete(task) {
     api
@@ -48,6 +47,7 @@ function App() {
   function handleAddTask(task) {
     api.addNewTask(task)
       .then((res) => {
+        setTaskState(true);
         setTasks([res, ...tasks]);
       })
       .catch((e) => {
@@ -59,6 +59,7 @@ function App() {
     api
       .getInitialTasks()
       .then((res) => {
+        setTaskState()
         setTasks(res);
       })
       .catch((e) => {
