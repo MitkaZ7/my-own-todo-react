@@ -19,22 +19,39 @@ function App() {
   const [tasks, setTasks] = React.useState([]);
   const [email, setEmail] = React.useState('');
   const [loggedIn, setLoggedIn] = React.useState(false);
-  const [selectedTask, setSelectedTask] = React.useState({});
+  const [taskState, setTaskState] = React.useState(false);
   let navigate = useNavigate();
 
 
-  const handleTaskClick = (task) => {
-    setSelectedTask(task);
-    console.log(task)
+  const handleTaskComplete = (task) => {
+    task.isCompleted = !task.isCompleted;
+    api
+      .updateTask(task)
+      .then((task) => {
+        setTasks((tasks) => tasks.map((t) => t._id === task._id ? task : t));
+      })
+      .catch((e) => {
+          console.log('Статус задачи не изменился');
+        })
   }
   function handleTaskDelete(task) {
     api
       .removeTask(task._id)
       .then(() => {
-        setTasks((state) => state.filter((c) => c._id !== task._id));
+        setTasks((state) => state.filter((t) => t._id !== task._id));
       })
       .catch((e) => {
         console.log('Ошибка удаления задачи');
+      })
+  }
+  function handleAddTask(task) {
+    api.addNewTask(task)
+      .then((res) => {
+        setTaskState(true);
+        setTasks([res, ...tasks]);
+      })
+      .catch((e) => {
+        console.log('Ошибка, не удалось добавить новую задачу');
       })
   }
 
@@ -42,8 +59,8 @@ function App() {
     api
       .getInitialTasks()
       .then((res) => {
+        setTaskState()
         setTasks(res);
-        console.log(res)
       })
       .catch((e) => {
         console.log('Ошибка, список задач не загружен');
@@ -61,18 +78,7 @@ function App() {
 
   }
 
-  function handleAddTask(task) {
 
-    const taskData = {task};
-    console.log(taskData);
-    api.addNewTask(task)
-    .then((res) => {
-        setTasks([res, ...tasks]);
-      })
-    .catch((e) => {
-        console.log('Ошибка, не удалось добавить новую задачу');
-      })
-  }
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <Routes>
@@ -88,7 +94,7 @@ function App() {
             element={
               <Tasks
                 onTaskDelete={handleTaskDelete}
-                onTaskClick={handleTaskClick}
+                onTaskClick={handleTaskComplete}
                 onTaskAdd={handleAddTask}
                 tasks={tasks}
                 />

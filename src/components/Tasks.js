@@ -1,6 +1,8 @@
 
 import FormAddTask from './FormAddTask';
 import Task from './Task';
+import TasksCounter from './TasksCounter';
+import EmptyPlug from './EmptyPlug';
 const Tasks = (props) => {
     const tasks = props.tasks;
 
@@ -22,15 +24,8 @@ const Tasks = (props) => {
             })}
 
           </ul>
-          <div className="plug section__plug">
-            <p className="plug__text">no current tasks, please add them</p>
-          </div>
-          <div className="tasks__info">
-            <div className="tasks__counters">
-              <p className="tasks__counter counter">active:&nbsp;<span className="tasks__counter-current">0</span></p>
-              <p className="tasks__counter counter">completed:&nbsp;<span className="tasks__counter-completed">0</span></p>
-            </div>
-          </div>
+          <EmptyPlug />
+          <TasksCounter />
         </section>
         </main>
     )
