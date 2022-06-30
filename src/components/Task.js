@@ -9,9 +9,6 @@ function Task(props){
 
   function handleClick() {
     props.onTaskClick(props.task);
-
-    // props.task.isCompleted = !props.task.isCompleted;
-    console.log(props.task)
   }
 
   function handleDeleteClick() {
@@ -19,7 +16,7 @@ function Task(props){
   }
 
     return (
-      <li className={task.isCompleted ? taskCompletedClassName : 'task'} task={task} key={task._id}>
+      <li className={`task ${task.isCompleted ? taskCompletedClassName : ''}`} task={task} key={task._id}>
       <div className="task__content">
         <button className="button task__button-edit"></button>
           <label className="task__input-label">

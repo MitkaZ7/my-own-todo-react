@@ -6,8 +6,6 @@
     align-items: center;
     width: 100%;
     transition: .7s;
-    
-    background-color: #DAE4E5;
-
- 
+    /* background-color: #DAE4E5; */
+    border-bottom: 2px solid #DAE4E5;
 }

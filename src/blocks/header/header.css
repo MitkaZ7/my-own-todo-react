@@ -12,6 +12,6 @@
 
 @media(max-width: 767px) {
     .header{
-        background-color: #DAE4E5;
+        /* background-color: #DAE4E5; */
     }
 }
