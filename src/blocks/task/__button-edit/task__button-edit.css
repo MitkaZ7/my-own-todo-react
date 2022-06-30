@@ -1,5 +1,5 @@
 .task__button-edit {
-    opacity: 0;
+    opacity: 1;
     width: 19px;
     height: 19px;
     background-image: url(../../../images/pencil.svg);
