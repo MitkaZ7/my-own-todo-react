@@ -5,13 +5,12 @@
     align-items: center;
     min-height: 40px;
     margin-right: 20px;
-    
+
 }
 
 @media(max-width: 767px) {
     .header__menu {
         margin-right: 20px;
-        
+
     }
 }
-/*navbar*/
