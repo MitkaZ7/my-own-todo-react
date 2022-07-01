@@ -30,7 +30,7 @@ const NavMenu = () =>  {
             <NavLink className="header__menu-link header__menu-link_register" to="/tasks">Tasks</NavLink>
           </li>
         </ul>
-        <MenuToggler onClick={handleOpenMenu}/>
+        <MenuToggler onClick={handleOpenMenu} isMenuOpen={isMenuOpen}/>
       </nav>
     )
 

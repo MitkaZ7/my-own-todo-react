@@ -47,7 +47,7 @@ function App() {
   function handleAddTask(task) {
     api.addNewTask(task)
       .then((res) => {
-        setTaskState(true);
+        setTaskState(!taskState);
         setTasks([res, ...tasks]);
       })
       .catch((e) => {
