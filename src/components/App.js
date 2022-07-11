@@ -10,7 +10,7 @@ import NotFound from './NotFound'
 import Login from './Login'
 import Register from './Register'
 import Admin from './Admin'
-import { CurrentUserContext } from '../contexts/CurrentUserContext';
+
 
 import Unauthorized from './Unauthorized'
 
@@ -80,7 +80,7 @@ function App() {
 
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
+
       <Routes>
         <Route path='/' element={<Layout />}>
         {/* Public routes */}
@@ -107,7 +107,7 @@ function App() {
         </Route>
       </Routes>
 
-    </CurrentUserContext.Provider>
+
 
   );
 }
