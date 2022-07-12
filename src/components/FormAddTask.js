@@ -1,11 +1,8 @@
 import {useState, useEffect} from 'react'
-
+import { createTask } from '../store/slices/TasksSlice'
 function FormAddTask({ onSubmit }) {
   const [value, setValue] = useState('');
-  useEffect(() => {
-    setValue('');
 
-  }, [])
   function handleSubmit(evt) {
     evt.preventDefault();
     onSubmit({value});
