@@ -20,9 +20,15 @@ export const getInitialTasks = createAsyncThunk(
 
 export const createTask = createAsyncThunk(
   'tasks/createTask',
-  async (data) => {
-    const res = await api.addNewTask(data);
-    return res.data;
+  async (data, { rejectWithValue, dispatch }) => {
+    try {
+      const res = await api.addNewTask(data);
+      console.log(res)
+      dispatch(addTask(res))
+    } catch (error) {
+      return rejectWithValue((error.message))
+    }
+
   }
 )
 
@@ -56,9 +62,7 @@ const tasksSlice = createSlice({
     error: null,
     reducers: {
       addTask(state,action) {
-        state.tasks.push({
-          text: action.payload.text,
-        })
+        state.tasks.push(action.payload);
       },
       removeTask(state, action) {
         state.tasks.splice(state.tasks.findIndex((task) => task._id === action.payload), 1)
@@ -86,5 +90,5 @@ const tasksSlice = createSlice({
     }
 })
 
-export const { removeTask, toggleTodoComplete } = tasksSlice.actions;
+export const { removeTask, toggleTodoComplete, addTask } = tasksSlice.actions;
 export default tasksSlice.reducer;

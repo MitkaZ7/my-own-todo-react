@@ -1,15 +1,17 @@
 import {useState, useEffect} from 'react'
 import { createTask } from '../store/slices/TasksSlice'
-function FormAddTask({ onSubmit }) {
-  const [value, setValue] = useState('');
-
+import { useDispatch } from 'react-redux'
+function FormAddTask() {
+  const [text, setText] = useState('');
+  const dispatch = useDispatch();
   function handleSubmit(evt) {
     evt.preventDefault();
-    onSubmit({value});
-    setValue('');
+    dispatch(createTask(text))
+    setText('')
+
   }
-  function handleChangeTaskInput(evt) {
-    setValue(evt.target.value);
+  function handleChangeInput(evt) {
+    setText(evt.target.value);
   }
   return (
     <form className="form form_add-task tasks__form" onSubmit={handleSubmit}>
@@ -18,8 +20,8 @@ function FormAddTask({ onSubmit }) {
       className="tasks__form-input form__input"
       id="form__input"
       name="task"
-      onChange={handleChangeTaskInput}
-      value={value}
+      onChange={handleChangeInput}
+      value={text}
       />
       <span className="form__input-error"></span>
       <button className="tasks__add-button button_type_submit" type="submit"></button>

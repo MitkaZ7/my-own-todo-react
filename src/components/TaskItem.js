@@ -26,7 +26,8 @@ function TaskItem({_id, text, isCompleted}){
             <input
             className='task__input-сhbx'
             type="checkbox"
-
+              checked={isCompleted}
+              onChange={handleClick}
             />
           <span className="task__checkbox"></span>
 
