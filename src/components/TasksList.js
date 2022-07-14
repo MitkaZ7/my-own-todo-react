@@ -3,7 +3,7 @@ import FormAddTask from './FormAddTask';
 import TaskItem from './TaskItem';
 import TasksCounter from './TasksCounter';
 import EmptyPlug from './EmptyPlug';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 const TasksList = () => {
   const tasks = useSelector(state => state.tasks.tasks);
     return (

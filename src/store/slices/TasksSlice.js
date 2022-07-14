@@ -3,9 +3,18 @@ import api from '../../utils/Api'
 
 export const getInitialTasks = createAsyncThunk(
   'tasks/getInitialTasks',
-  async () => {
-    const data = await api.getInitialTasks();
-    return data;
+  async (_, {rejectWithValue}) => {
+    try {
+      const data = await api.getInitialTasks();
+      return data;
+    } catch (error) {
+        return rejectWithValue((error.message))
+    }
+
+    // const response = await api.getInitialTasks();
+    // const tasksData = await response.json();
+    // console.log(response)
+    // return tasksData;
   }
 )
 
@@ -17,7 +26,7 @@ export const createTask = createAsyncThunk(
   }
 )
 
-const updateTask = createAsyncThunk(
+export const updateTask = createAsyncThunk(
   'tasks/updateTask',
   async (task) => {
     const res = await api.updateTask(task);
@@ -25,11 +34,16 @@ const updateTask = createAsyncThunk(
   }
 )
 
-const removeTask = createAsyncThunk(
+export const deleteTask = createAsyncThunk(
   'tasks/removeTask',
-  async (taskId) => {
-    const res = await api.removeTask(taskId);
-    return res.data;
+  async (taskId, {rejectWithValue, dispatch}) => {
+    try {
+      await api.removeTask(taskId);
+      console.log(taskId)
+      dispatch(removeTask(taskId));
+    } catch (error) {
+      return rejectWithValue((error.message))
+    }
   }
 )
 
@@ -43,39 +57,34 @@ const tasksSlice = createSlice({
     reducers: {
       addTask(state,action) {
         state.tasks.push({
-          id: action.payload._id,
           text: action.payload.text,
-          isCompleted: action.payload.isCompleted,
         })
+      },
+      removeTask(state, action) {
+        state.tasks.splice(state.tasks.findIndex((task) => task._id === action.payload), 1)
       }
     },
     extraReducers: {
-      // [getInitialTasks.pending]:(state) => {
-      //   state.status = 'Loading';
-      // },
+      [getInitialTasks.pending]:(state) => {
+        state.status = 'Loading';
+      },
       [getInitialTasks.fulfilled]: (state, action) => {
        state.status = 'Resolved';
        state.tasks = action.payload;
       },
-
-      [createTask.fulfilled]:(state,action) => {
-        state.push(action.payload);
+      [getInitialTasks.rejected]: (state, action) => {
+        state.status = 'Rejected';
+        state.error = action.payload;
       },
 
-      [updateTask.fulfilled]:(state,action) => {
-        const index = state.findIndex(tutorial => tutorial.id === action.payload.id);
-        state[index] = {
-          ...state[index],
-          ...action.payload,
-        };
-      },
-      [removeTask.fulfilled]:(state,action) => {
-        let index = state.findIndex(({ id }) => id === action.payload.id);
-        state.splice(index, 1);
-      }
+
+      // [deleteTask.fulfilled]: (state, action) => {
+      //   state.tasks = state.tasks.map((t) => t._id === task._id ? task : t);
+      // }
+
 
     }
 })
 
-export const { addTodo, removeTodo, toggleTodoComplete } = tasksSlice.actions;
+export const { removeTask, toggleTodoComplete } = tasksSlice.actions;
 export default tasksSlice.reducer;

@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import { useDispatch } from 'react-redux'
+import { deleteTask } from '../store/slices/TasksSlice'
 
-// import { CurrentUserContext } from '../contexts/CurrentUserContext';
 function TaskItem({_id, text, isCompleted}){
   const dispatch = useDispatch();
 
@@ -10,12 +10,11 @@ function TaskItem({_id, text, isCompleted}){
   const [isChecked, setChecked] = useState(true)
 
   function handleClick() {
-    // props.onTaskClick(props.task);
+
   }
 
   function handleDeleteClick() {
-
-    // props.onTaskDelete(task);
+    dispatch(deleteTask(_id));
   }
 
     return (
@@ -27,15 +26,12 @@ function TaskItem({_id, text, isCompleted}){
             <input
             className='task__input-сhbx'
             type="checkbox"
-            // onClick={handleClick}
-            //   defaultChecked={task.isCompleted ? isChecked : !isChecked}
-            //   onChange={() => setChecked(isChecked)}
 
             />
           <span className="task__checkbox"></span>
 
         </label>
-          <button className="button task__button-remove" onClick={handleDeleteClick}></button>
+          <button className="button task__button-remove" onClick={handleDeleteClick} ></button>
       </div>
     </li>
     )
