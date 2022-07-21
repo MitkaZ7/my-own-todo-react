@@ -1,16 +1,16 @@
 import {useState} from 'react';
 import { useDispatch } from 'react-redux'
-import { deleteTask } from '../store/slices/TasksSlice'
+import { deleteTask, updateTask } from '../store/slices/TasksSlice'
 
 function TaskItem({_id, text, isCompleted}){
   const dispatch = useDispatch();
 
   const taskCompletedClassName = (`task_state_completed`);
   const activeChecboxClassName = (`task__checkbox_state_checked`);
-  const [isChecked, setChecked] = useState(true)
+  // const [isChecked, setChecked] = useState(true)
 
   function handleClick() {
-
+    dispatch(updateTask(_id));
   }
 
   function handleDeleteClick() {

@@ -26,17 +26,17 @@ function App() {
   let navigate = useNavigate();
 
 
-  const handleTaskComplete = (task) => {
-    task.isCompleted = !task.isCompleted;
-    api
-      .updateTask(task)
-      .then((task) => {
-        setTasks((tasks) => tasks.map((t) => t._id === task._id ? task : t));
-      })
-      .catch((e) => {
-          console.log('Статус задачи не изменился');
-        })
-  }
+  // const handleTaskComplete = (task) => {
+  //   task.isCompleted = !task.isCompleted;
+  //   api
+  //     .updateTask(task)
+  //     .then((task) => {
+  //       setTasks((tasks) => tasks.map((t) => t._id === task._id ? task : t));
+  //     })
+  //     .catch((e) => {
+  //         console.log('Статус задачи не изменился');
+  //       })
+  // }
   // function handleTaskDelete(task) {
   //   api
   //     .removeTask(task._id)

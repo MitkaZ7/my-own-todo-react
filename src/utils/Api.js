@@ -18,11 +18,7 @@ class Api {
   //     .then(this._checkResponse)
   // }
   getInitialTasks() {
-    // let data = fetch(`${this._url}/tasks`, {
-    //   method: 'GET',
-    //   headers: this._headers,
-    // })
-    // return data
+
     return fetch(`${this._url}/tasks`, {
       method: 'GET',
       headers: this._headers,
