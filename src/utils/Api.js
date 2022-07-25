@@ -18,11 +18,14 @@ class Api {
   //     .then(this._checkResponse)
   // }
   getInitialTasks() {
+
     return fetch(`${this._url}/tasks`, {
       method: 'GET',
       headers: this._headers,
     })
+
       .then(this._checkResponse)
+
   }
   updateTask(task) {
     return fetch(`${this._url}/tasks`, {
@@ -55,12 +58,12 @@ class Api {
   //   })
   //     .then(this._checkResponse)
   // }
-  addNewTask(data) {
+  addNewTask(text) {
     return fetch(`${this._url}/tasks`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        text: data.value
+        text: text
       })
     })
       .then(this._checkResponse)

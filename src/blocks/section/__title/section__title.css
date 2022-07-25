@@ -4,5 +4,8 @@
     text-align: center;
     text-transform: uppercase;
     margin: 25px 0 0;
-    color: #FF725E;
+    /* color: #FF725E; */
+    background-image: radial-gradient(ellipse, #ff024e, #FF725E);
+      color: transparent;
+      background-clip: text;
 }

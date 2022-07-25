@@ -1,20 +1,16 @@
 import { useRef, useEffect, useState} from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { setUser } from '../store/slices/UserSlice'
+import Form from './Form';
 
-import { Link, useNavigate, useLocation } from 'react-router-dom'
-const LOGIN_URL = '/auth';
 const Login = ({onSubmit}) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
 
-  function handleChangeEmail(evt) {
-    setEmail(evt.target.value);
-  }
-  function handleChangePassword(evt) {
-    setPassword(evt.target.value);
-  }
-  function handleSubmit(evt) {
+
+  const handleLogin = (evt) => {
     evt.preventDefault();
-    onSubmit({ email, password });
+
   }
 
   return (
@@ -25,8 +21,8 @@ const Login = ({onSubmit}) => {
         action="#"
         name="form-registration"
         className="form popup__form"
-        onSubmit={handleSubmit}>
-          <fieldset className="popup__form-fieldset">
+          onSubmit={handleLogin}>
+          {/* <fieldset className="popup__form-fieldset">
             <input
             className="popup__form-input form-input"
             id="inputEmail"
@@ -53,7 +49,7 @@ const Login = ({onSubmit}) => {
             />
             <span className="popup__input-error"></span>
           </fieldset>
-          <button type="submit" className="button_type_submit popup__button-submit">Login</button>
+          <button type="submit" className="button_type_submit popup__button-submit">Login</button> */}
         </form>
         <span className="popup__links">Don't have an account?&nbsp;<Link className="popup__link" to="/signup">Registration</Link></span>
       </div>

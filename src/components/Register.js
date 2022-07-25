@@ -1,15 +1,10 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
-
+import Form from './Form';
 const Register = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  function handleChangeEmail(evt) {
-    setEmail(evt.target.value);
-  }
-  function handleChangePassword(evt) {
-    setPassword(evt.target.value);
-  }
+
   function handleSubmit(evt) {
     evt.preventDefault();
     props.handleRegistration(email, password);
@@ -26,14 +21,14 @@ const Register = (props) => {
           className="form popup__form"
           onSubmit={handleSubmit}
           >
-            <fieldset className="popup__form-fieldset">
+            {/* <fieldset className="popup__form-fieldset">
               <input
               className="popup__form-input form-input"
               id="input-email"
               type="email"
               name="email"
               placeholder="email"
-              onChange={handleChangeEmail}
+              // onChange={handleChangeEmail}
               value={email}
                 />
                 <span className="popup__input-error"></span>
@@ -43,12 +38,12 @@ const Register = (props) => {
                 type="password"
                 name="password"
                 placeholder="password"
-                onChange={handleChangePassword}
+                // onChange={handleChangePassword}
                 value={password}
                 />
                   <span className="popup__input-error"></span>
                 </fieldset>
-                <button type="submit" className="button_type_submit popup__button-submit">Registrate</button>
+                <button type="submit" className="button_type_submit popup__button-submit">Registrate</button> */}
               </form>
               <span className="popup__links">Already registred?&nbsp;<Link className="popup__link" to="/signin">Sign In</Link></span>
             </div>
