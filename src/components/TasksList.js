@@ -5,6 +5,7 @@ import TasksCounter from './TasksCounter';
 import EmptyPlug from './EmptyPlug';
 import { useSelector, useDispatch } from 'react-redux'
 const TasksList = () => {
+  const dispatch = useDispatch();
   const tasks = useSelector(state => state.tasks.tasks);
     return (
         <main className="content">
@@ -13,11 +14,12 @@ const TasksList = () => {
           <FormAddTask />
           <ul className="tasks__list">
             {
+
               tasks.map((task) => <TaskItem key={task._id} {...task} />)
             }
           </ul>
           <EmptyPlug />
-          <TasksCounter />
+          <TasksCounter/>
         </section>
         </main>
     )
