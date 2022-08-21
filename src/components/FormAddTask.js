@@ -1,12 +1,16 @@
 import {useState, useEffect} from 'react'
 import { createTask } from '../store/slices/TasksSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector} from 'react-redux'
+import { countAll } from '../store/slices/CounterSlice'
+
 function FormAddTask() {
   const [text, setText] = useState('');
   const dispatch = useDispatch();
+  const tasksArr = useSelector((state) => state.tasks.tasks)
   function handleSubmit(evt) {
     evt.preventDefault();
-    dispatch(createTask(text))
+    dispatch(createTask(text.trim()));
+    dispatch(countAll(tasksArr));
     setText('')
 
   }
