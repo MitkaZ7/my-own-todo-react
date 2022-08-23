@@ -20,7 +20,6 @@ function App() {
   const dispatch = useDispatch();
   const { status, error } = useSelector(state => state.tasks)
 
-
   const [loggedIn, setLoggedIn] = React.useState(false);
 
   let navigate = useNavigate();
@@ -48,6 +47,7 @@ function App() {
             {status === 'loading' && <h3>LOADING...</h3>}
             {error && <h3>ERROR HAPPENS: {error}</h3>}
             <TasksList />
+
         </>
 
         }/>

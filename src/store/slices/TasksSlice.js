@@ -40,6 +40,7 @@ export const updateTask = createAsyncThunk(
     try {
       await api.updateTask(updatedTask)
       dispatch(updateTaskStatus(id));
+      // dispatch(countAll(tasksList))
     } catch (error) {
       return rejectWithValue((error.message))
     }

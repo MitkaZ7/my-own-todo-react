@@ -1,13 +1,9 @@
-import {useState} from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import { useDispatch } from 'react-redux'
 import { deleteTask, updateTask } from '../store/slices/TasksSlice'
-import { selectActiveCount, selectCompletedCount, selectTotalCount, countAll, countActive, countCompleted } from '../store/slices/CounterSlice'
-
 
 
 function TaskItem({_id, text, isCompleted}){
-  const counter = useSelector((state) => state.counter)
-  const tasksArr = useSelector((state) => state.tasks.tasks)
   const dispatch = useDispatch();
 
   const taskCompletedClassName = (`task_state_completed`);
@@ -16,15 +12,10 @@ function TaskItem({_id, text, isCompleted}){
 
   function handleClick() {
     dispatch(updateTask(_id));
-    // countAll(tasksArray);
-    // dispatch(countMyTasks(tasksArr))
-    console.log(counter)
   }
 
   function handleDeleteClick() {
     dispatch(deleteTask(_id));
-    // countAll(tasksArray);
-    // dispatch(countMyTasks(tasksArr))
   }
 
     return (
@@ -41,7 +32,6 @@ function TaskItem({_id, text, isCompleted}){
             onChange={handleClick}
             />
           <span className="task__checkbox"></span>
-
         </label>
           <button className="button task__button-remove" onClick={handleDeleteClick} ></button>
       </div>

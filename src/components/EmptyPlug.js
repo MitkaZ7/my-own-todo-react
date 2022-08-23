@@ -1,4 +1,4 @@
-
+import React from 'react'
 const EmptyPlug = (props) => {
   return (
     <div className="plug section__plug">
