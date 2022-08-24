@@ -1,7 +1,6 @@
-.popup__button-submit {
+.button_submit {
     height:50px;
     width: 100%;
-
     margin: 0;
     border: none;
     color: #2B4A4A;
