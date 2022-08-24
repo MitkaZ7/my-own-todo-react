@@ -23,10 +23,21 @@ const Confetti = ({isCompletedAll}) => {
       {isCompletedAll && <ReactConfetti
         width={windowDimension.width}
         height={windowDimension.height}
-        tweenDuration={100}
-        numberOfPieces={100}
+        tweenDuration={4400}
+        numberOfPieces={300}
         recycle={false}
-        gravity={.2}
+        gravity={.5}
+        drawShape={ctx => {
+          ctx.beginPath()
+          for (let i = 0; i < 22; i++) {
+            const angle = 0.5 * i
+            const x = (0.2 + (1.5 * angle)) * Math.cos(angle)
+            const y = (0.2 + (1.5 * angle)) * Math.sin(angle)
+            ctx.lineTo(x, y)
+          }
+          ctx.stroke()
+          ctx.closePath()
+        }}
       />
       }
     </>
