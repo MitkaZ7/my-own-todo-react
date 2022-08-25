@@ -1,15 +1,32 @@
 import { useRef, useEffect, useState} from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
-import { setUser } from '../store/slices/UserSlice'
+import { setUser, authorizeUser } from '../store/slices/UserSlice'
 import Form from './Form';
 
 const Login = ({onSubmit}) => {
   const dispatch = useDispatch();
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  let navigate = useNavigate();
+  function handleChangeEmail(evt) {
+    setEmail(evt.target.value);
+  }
+  function handleChangePassword(evt) {
+    setPassword(evt.target.value);
+  }
 
   const handleLogin = (evt) => {
     evt.preventDefault();
+    const authData = {
+      email,
+      password
+    }
+    dispatch(authorizeUser(authData))
+      .then((res) => {
+        // console.log(res.requestStatus)
+      });
+    navigate('/tasks');
   }
 
   return (
@@ -18,8 +35,30 @@ const Login = ({onSubmit}) => {
       formTitle='Login'
       linkText='Don`t have an account?'
       linkTitle='Registrate'
-      submitForm={handleLogin}
-    />
+      onSubmit={handleLogin}
+      linkTo='/registration'
+    >
+      <input
+        className="form__input"
+        id="inputEmail"
+        type="text"
+        name="email"
+        placeholder="email"
+        onChange={handleChangeEmail}
+        value={email}
+      />
+      <span className="form__input-error"></span>
+      <input
+        className="form__input"
+        id="input-password"
+        type="password"
+        name="password"
+        placeholder="password"
+        onChange={handleChangePassword}
+        value={password}
+
+      />
+    </Form>
   )
 }
 

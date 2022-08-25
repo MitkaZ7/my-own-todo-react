@@ -20,10 +20,9 @@ function App() {
   const dispatch = useDispatch();
   const { status, error } = useSelector(state => state.tasks)
 
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  // const [loggedIn, setLoggedIn] = React.useState(false);
 
-  let navigate = useNavigate();
-  const tasksArray = useSelector((state) => state.tasks.tasks);
+  // let navigate = useNavigate();
 
 
   useEffect(() => {
@@ -37,8 +36,8 @@ function App() {
         <Route path='/' element={<Layout />}>
         {/* Public routes */}
         <Route index element={<Welcome />}/>
-          <Route path='signin' element={<Login />} />
-          <Route path='signup' element={<Register />} />
+          <Route path='login' element={<Login />} />
+        <Route path='registration' element={<Register />} />
         <Route path='unauthorized' element={<Unauthorized />} />
         {/* Protected routes */}
 

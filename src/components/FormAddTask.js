@@ -19,7 +19,7 @@ function FormAddTask() {
     setText(evt.target.value);
   }
   return (
-    <form className="form form_add-task tasks__form" onSubmit={handleSubmit}>
+    <form className="form-add-task tasks__form" onSubmit={handleSubmit}>
       <input
       type="text"
       className="tasks__form-input form__input"
