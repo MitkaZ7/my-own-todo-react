@@ -18,6 +18,7 @@
 @import url(../blocks/logo/__image/logo__image.css);
 @import url(../blocks/section/__title/section__title.css);
 @import url(../blocks/section/__subtitle/section__subtitle.css);
+@import url(../blocks/section/__button/section__button.css);
 @import url(../blocks/section-info/section-info.css);
 @import url(../blocks/section-info/__text/section-info__text.css);
 @import url(../blocks/section-info/__links/section-info__links.css);
@@ -88,4 +89,4 @@
 @import url(../blocks/form/__input/form__input.css);
 @import url(../blocks/form/__links/form__links.css);
 @import url(../blocks/form/__link/form__link.css);
-
+@import url(../blocks/section-unauthorized/section-unauthorized.css);

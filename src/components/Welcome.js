@@ -12,7 +12,7 @@ export default class Welcome extends Component {
           <h1 className="section__title">Welcome to My own TODO app</h1>
           <p className="section__subtitle">Simple and style project based on ReactJS</p>
           <div className="section-info__links">
-            <Link className="section__info-link" to="/signin">Let's make you list &rarr;</Link>
+            <Link className="section__info-link" to="/login">Let's make you list &rarr;</Link>
           </div>
         </div>
       </section>

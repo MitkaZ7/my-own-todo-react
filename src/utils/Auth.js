@@ -1,5 +1,4 @@
-export const url = 'http://localhost:3000';
-// export const url = 'https://api.locus.students.nomoredomains.rocks';
+export const url = 'http://localhost:3001';
 
 const checkResponse = (res) =>
   res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
@@ -11,14 +10,13 @@ export const register = (email, password) => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ email, password })
   }).then(checkResponse);
 };
 
 export const authorize = ({ password, email }) => {
   return fetch(`${url}/login`, {
     method: "POST",
-    credentials: 'include',
     headers: {
       "Content-Type": "application/json",
     },
@@ -27,14 +25,14 @@ export const authorize = ({ password, email }) => {
     .then((response) => {
       return response.json();
     })
-    .then((data) => {
-      console.log(data);
-      if (data.token) {
-        localStorage.setItem('token', data.token)
-        return data;
-      }
-    })
-    .catch((err) => console.log(err));
+    // .then((data) => {
+    //   console.log(data);
+    //   if (data.token) {
+    //     localStorage.setItem('token', data.token)
+    //     return data;
+    //   }
+    // })
+    // .catch((err) => console.log(err));
 };
 
 export const checkToken = (token) => {
