@@ -1,10 +1,13 @@
 import { useRef, useEffect, useState} from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setUser, authorizeUser } from '../store/slices/UserSlice'
+import { useTranslation, Trans } from 'react-i18next'
+
 import Form from './Form';
 
 const Login = ({onSubmit}) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,6 +33,7 @@ const Login = ({onSubmit}) => {
   }
 
   return (
+    <Trans>
     <Form
       buttonText='Login'
       formTitle='Login'
@@ -59,6 +63,7 @@ const Login = ({onSubmit}) => {
 
       />
     </Form>
+    </Trans>
   )
 }
 

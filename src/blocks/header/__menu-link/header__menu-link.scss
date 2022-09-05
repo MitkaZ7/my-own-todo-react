@@ -1,0 +1,15 @@
+.header__menu-link {
+    text-decoration: none;
+    color: $link-color;
+    /* transition: .5s ease; */
+}
+.header__menu-link:hover {
+    cursor: pointer;
+    color: $accent-color;
+    text-decoration: underline;
+}
+.header__menu-link:visited {
+  cursor: pointer;
+  color: var(--link-visited-color);
+
+}

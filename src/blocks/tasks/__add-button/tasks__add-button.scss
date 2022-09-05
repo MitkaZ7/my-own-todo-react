@@ -1,0 +1,13 @@
+.tasks__add-button {
+    width: 100px;
+    background-image: url(../../../images/plus_icon.svg);
+    background-color: $btn-bg-color;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: 1px solid $border-color;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+.tasks__add-button:disabled {
+
+}

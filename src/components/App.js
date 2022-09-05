@@ -3,26 +3,24 @@ import { Routes, Route, useNavigate  } from 'react-router-dom'
 import { getInitialTasks } from '../store/slices/TasksSlice'
 import { countMyTasks } from '../store/slices/CounterSlice'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation, Trans } from 'react-i18next'
 import TasksList from './TasksList'
 import TaskItem from './TaskItem'
-import api from '../utils/Api'
 import Welcome from './Welcome'
 import Layout from './Layout'
 import NotFound from './NotFound'
 import Login from './Login'
 import Register from './Register'
-import Admin from './Admin'
+import Profile from "./Profile"
+
 
 
 import Unauthorized from './Unauthorized'
 
 function App() {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { status, error } = useSelector(state => state.tasks)
-
-  // const [loggedIn, setLoggedIn] = React.useState(false);
-
-  // let navigate = useNavigate();
 
 
   useEffect(() => {
@@ -33,6 +31,7 @@ function App() {
   return (
 
       <Routes>
+
         <Route path='/' element={<Layout />}>
         {/* Public routes */}
         <Route index element={<Welcome />}/>
@@ -46,15 +45,15 @@ function App() {
             {status === 'loading' && <h3>LOADING...</h3>}
             {error && <h3>ERROR HAPPENS: {error}</h3>}
             <TasksList />
-
         </>
 
         }/>
         <Route path='tasks/:id' element={<TaskItem />}/>
-        <Route path='admin' element={<Admin />} />
+
         {/* cath all */}
         <Route path='*' element={<NotFound />} />
         </Route>
+
       </Routes>
 
 

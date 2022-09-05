@@ -34,9 +34,18 @@ const NavMenu = () =>  {
                 <NavLink className="header__menu-link header__menu-link_register" to="/">Home</NavLink>
               </li>
           </>
-           : <li className="header__menu-list-item">
+           :
+           <>
+            <li className="header__menu-list-item">
+              <NavLink className="header__menu-link header__menu-link_register" to="/tasks">Tasks</NavLink>
+            </li>
+            <li className="header__menu-list-item">
+              <NavLink className="header__menu-link header__menu-link_profile" to="/profile" >Profile</NavLink>
+            </li>
+            <li className="header__menu-list-item">
               <NavLink className="header__menu-link header__menu-link_logout" to="/" onClick={handleLogout}>Logout</NavLink>
             </li>
+           </>
           }
 
 
@@ -47,9 +56,7 @@ const NavMenu = () =>  {
           {/* <li className="header__menu-list-item">
             <NavLink className="header__menu-link header__menu-link_register" to="/lounge">Lounge</NavLink>
           </li> */}
-          <li className="header__menu-list-item">
-            <NavLink className="header__menu-link header__menu-link_register" to="/tasks">Tasks</NavLink>
-          </li>
+
         </ul>
         <MenuToggler onClick={handleOpenMenu} isMenuOpen={isMenuOpen}/>
       </nav>
