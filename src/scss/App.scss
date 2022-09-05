@@ -1,0 +1,94 @@
+/* base*/
+@import '../scss/variables';
+@import '../vendor/normalize';
+@import '../vendor/fonts/fonts';
+/*blocks*/
+// @import './colors';
+@import '../blocks/root/root';
+@import '../blocks/page/page';
+@import '../blocks/main/main';
+
+@import '../blocks/section/section';
+@import '../blocks/header/header';
+@import '../blocks/header/__btns/header__btns';
+@import '../blocks/header/__button/header__button';
+@import '../blocks/header/__menu/header__menu';
+@import '../blocks/header/__menu-list/header__menu-list';
+@import '../blocks/header/__menu-list-item/header__menu-list-item';
+@import '../blocks/header/__menu-link/header__menu-link';
+@import '../blocks/logo/logo';
+@import '../blocks/logo/__image/logo__image';
+@import '../blocks/section/__title/section__title';
+@import '../blocks/section/__subtitle/section__subtitle';
+@import '../blocks/section/__button/section__button';
+@import '../blocks/section-info/section-info';
+@import '../blocks/section-info/__text/section-info__text';
+@import '../blocks/section-info/__links/section-info__links';
+@import '../blocks/section-info/__link/section__info-link';
+@import '../blocks/footer/footer';
+@import '../blocks/footer/__contacts/footer__contacts';
+@import '../blocks/footer/__copyrights/footer__copyrights';
+@import '../blocks/footer/__copyrights/_text/footer__copyrights_text';
+@import '../blocks/footer/__contacts-list/footer__contacts-list';
+@import '../blocks/footer/__contacts-list-item/footer__contacts-list-item';
+@import '../blocks/footer/__contacts-list-link/footer__contacts-list-link';
+@import '../blocks/footer/__logo/footer__logo';
+
+@import '../blocks/tasks/tasks';
+@import '../blocks/tasks/__list/tasks__list';
+@import '../blocks/tasks/__form/tasks__form';
+@import '../blocks/tasks/__form-input/tasks__form-input';
+@import '../blocks/tasks/__add-button/tasks__add-button';
+@import '../blocks/tasks/__info/tasks__info';
+@import '../blocks/tasks/__counters/tasks__counters';
+@import '../blocks/tasks/__counter/tasks__counter';
+
+@import '../blocks/plug/plug';
+@import '../blocks/plug/__text/plug__text';
+@import '../blocks/plug/_state/plug_state_visible';
+
+
+@import '../blocks/task/task';
+@import '../blocks/task/__content/task__content';
+@import '../blocks/task/__btns/task__btns';
+@import '../blocks/task/__button-remove/task__button-remove';
+@import '../blocks/task/__text/task__text';
+@import '../blocks/task/__text/_state/task__text_state_complete';
+@import '../blocks/task/__input-label/task__input-label';
+@import '../blocks/task/__input-сhbx/task__input-сhbx';
+@import '../blocks/task/__checkbox/task__checkbox';
+@import '../blocks/task/__button-edit/task__button-edit';
+@import '../blocks/slider/slider';
+@import '../blocks/slider/__image/slider__image';
+
+@import '../blocks/profile/profile';
+@import '../blocks/profile/__content/profile__content';
+@import '../blocks/profile/__info/profile__info';
+@import '../blocks/profile/__avatar-container/profile__avatar-container';
+@import '../blocks/profile/__avatar/profile__avatar';
+@import '../blocks/profile/__info-item/profile__info-item';
+/*buttons*/
+@import '../blocks/button/button';
+@import '../blocks/button/_close/button_close';
+@import '../blocks/button/_remove/button_remove';
+@import '../blocks/button/_submit/button_submit';
+@import '../blocks/menu-toggler/menu-toggler';
+@import '../blocks/menu-toggler/__bar/menu-toggler__bar';
+/*states*/
+@import '../blocks/task/_state/_completed/task_state_completed';
+@import '../blocks/button/_state/button_state_disabled';
+@import '../blocks/form/__input-error/form__input-error';
+@import '../blocks/form/__input-error/_state/form__input-error_state_active';
+@import '../blocks/menu-toggler/_state/menu-toggler_state_active';
+@import '../blocks/menu-toggler/__bar/_state/menu-toggler__bar_state_active';
+@import '../blocks/header/__menu-list/_state/header__menu-list_state_active';
+@import '../blocks/notfounded-page/notfounded-page';
+
+@import '../blocks/form-container/form-container';
+@import '../blocks/form/form';
+@import '../blocks/form/__title/form__title';
+@import '../blocks/form/__fieldset/form__fieldset';
+@import '../blocks/form/__input/form__input';
+@import '../blocks/form/__links/form__links';
+@import '../blocks/form/__link/form__link';
+@import '../blocks/section-unauthorized/section-unauthorized';

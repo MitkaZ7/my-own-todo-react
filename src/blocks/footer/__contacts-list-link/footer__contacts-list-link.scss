@@ -1,0 +1,12 @@
+.footer__contacts-list-link {
+    color: $alternate-text-color;
+    text-decoration: none;
+
+}
+.footer__contacts-list-link:hover {
+    cursor: pointer;
+}
+
+.footer__contacts-list-link:visited {
+    color: $alternate-text-color;
+}
