@@ -1,0 +1,16 @@
+.switcher__checkbox {
+  display: none;
+}
+.switcher__checkbox:checked+.switcher__slider {
+  background-color: transparent;
+
+  &:before,
+  &:after {
+    transform: translateX(20px);
+  }
+}
+
+
+
+
+

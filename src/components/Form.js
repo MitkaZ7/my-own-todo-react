@@ -3,7 +3,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 
-const Form = ({ buttonText, onSubmit, formTitle, linkText, linkTitle, linkTo, children }) => {
+const Form = ({ buttonText, onSubmit, formTitle, linkText, linkTitle, linkTo, children}) => {
+  // const [value,setValue] = React.useState('');
+  // function handleChangeValue(evt){
+  //   setValue(evt.target.value);
+  // }
   return (
     <div className="form-container">
 
@@ -11,6 +15,7 @@ const Form = ({ buttonText, onSubmit, formTitle, linkText, linkTitle, linkTo, ch
         <h3 className="form__title">{formTitle}</h3>
         <fieldset className="form__fieldset">
           {children}
+
         </fieldset>
         <button type="submit" className="form__btn-submit button button_submit">{buttonText}</button>
       </form>

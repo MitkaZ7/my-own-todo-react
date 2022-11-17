@@ -17,10 +17,25 @@ const Switcher = () => {
   }
 
   return (
-    <button
-      onClick={hadleThemeChange}>
-      CLICK
-    </button>
+    <div className="switcher">
+      <label>
+        <input
+          className="switcher__checkbox"
+          id="toggler"
+          type="checkbox"
+          onClick={hadleThemeChange}
+          // checked={value}
+          readOnly
+        />
+        <span className="switcher__slider" />
+
+    </label>
+    </div>
+
+    // <button
+    //   onClick={hadleThemeChange}>
+    //   CLICK
+    // </button>
     // <div className="toggle-switch">
     // <input type="checkbox" className="toggle-switch-checkbox" name="toggleSwitch" id="toggleSwitch" />
     // <label className="toggle-switch-label" htmlFor="toggleSwitch"> <span className="toggle-switch-inner" />

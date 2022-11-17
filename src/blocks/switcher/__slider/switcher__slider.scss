@@ -1,0 +1,35 @@
+.switcher__slider {
+
+    width: 39px;
+    height: 19px;
+
+
+
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 1.4s;
+
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+
+      width: 18px;
+      height: 18px;
+      background-color: $accent-color;
+      border-radius: 2px;
+    }
+
+    &:before {
+      transition: 0.4s;
+    }
+
+    &:after {
+      transition: 0.5s;
+    }
+}
+
+
+
+

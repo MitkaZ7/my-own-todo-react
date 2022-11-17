@@ -2,12 +2,12 @@ import { useRef, useEffect, useState} from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setUser, authorizeUser } from '../store/slices/UserSlice'
-import { useTranslation, Trans } from 'react-i18next'
+// import { useTranslation, Trans } from 'react-i18next'
 
 import Form from './Form';
 
-const Login = ({onSubmit}) => {
-  const { t } = useTranslation();
+const Login = ({}) => {
+  // const { t } = useTranslation();
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,10 +30,11 @@ const Login = ({onSubmit}) => {
         // console.log(res.requestStatus)
       });
     navigate('/tasks');
+    return authData;
   }
 
   return (
-    <Trans>
+    // <Trans>
     <Form
       buttonText='Login'
       formTitle='Login'
@@ -45,7 +46,7 @@ const Login = ({onSubmit}) => {
       <input
         className="form__input"
         id="inputEmail"
-        type="text"
+        type="email"
         name="email"
         placeholder="email"
         onChange={handleChangeEmail}
@@ -63,7 +64,7 @@ const Login = ({onSubmit}) => {
 
       />
     </Form>
-    </Trans>
+    // </Trans>
   )
 }
 

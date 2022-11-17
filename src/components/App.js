@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate  } from 'react-router-dom'
 import { getInitialTasks } from '../store/slices/TasksSlice'
 import { countMyTasks } from '../store/slices/CounterSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { useTranslation, Trans } from 'react-i18next'
+// import { useTranslation, Trans } from 'react-i18next'
 import TasksList from './TasksList'
 import TaskItem from './TaskItem'
 import Welcome from './Welcome'
@@ -18,7 +18,7 @@ import Profile from "./Profile"
 import Unauthorized from './Unauthorized'
 
 function App() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
   const dispatch = useDispatch();
   const { status, error } = useSelector(state => state.tasks)
 
